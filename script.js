@@ -91,17 +91,26 @@ function printData() {
 
     ctx.fillStyle = "#000";
     ctx.font = "20px 'Roboto', sans-serif";
-    ctx.fillText("See you!", 20, 30);
+    ctx.fillText("See you! 💌", 20, 30);
     ctx.font = "16px 'Roboto', sans-serif";
     ctx.fillText(`Location: ${location} 🗺️`, 20, 70);
     ctx.fillText(`Time: ${time} ⏰`, 20, 100);
-    ctx.fillText("Don’t forget to send this back to me!", 20, 150);
+    ctx.fillText("Don’t forget to send this back to me! 📨", 20, 150);
 
-    const image = canvas.toDataURL("image/png");
-    const link = document.createElement("a");
-    link.href = image;
-    link.download = "meetup_plan.png";
-    link.click();
+    // Convert canvas to image
+    canvas.toBlob(function(blob) {
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "meetup_plan.png";
+
+        // Trigger download
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Revoke the object URL to free up memory
+        URL.revokeObjectURL(link.href);
+    }, "image/png");
 }
 
 function preventClose() {
