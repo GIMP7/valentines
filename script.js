@@ -5,6 +5,9 @@ let userChoice = null;
 // Initialize the first page
 loadPage(currentPage);
 
+var audio = new Audio('Cotton Vibe - i like you.mp3');
+audio.play();
+
 function loadPage(page) {
     const content = document.getElementById("content");
     content.innerHTML = "";
@@ -129,7 +132,6 @@ function createHearts() {
     setTimeout(() => heart.remove(), 5000);
 }
 
-var audio = new Audio('Cotton Vibe - i like you.mp3');
-audio.play();
+
 
 setInterval(createHearts, 300);
