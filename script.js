@@ -120,4 +120,11 @@ function createHearts() {
     setTimeout(() => heart.remove(), 5000);
 }
 
+var audio;
+$("#startAudio").on("click", function(e){
+    if(!audio){
+        audio = new Audio('Cotton Vibe - i like you.mp3');;
+    }
+});
+
 setInterval(createHearts, 300);
