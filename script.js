@@ -94,11 +94,11 @@ function printData() {
 
     ctx.fillStyle = "#000";
     ctx.font = "20px 'Roboto', sans-serif";
-    ctx.fillText("See you! 💌", 20, 30);
+    ctx.fillText("See you!", 20, 30);
     ctx.font = "16px 'Roboto', sans-serif";
     ctx.fillText(`Location: ${location} 🗺️`, 20, 70);
     ctx.fillText(`Time: ${time} ⏰`, 20, 100);
-    ctx.fillText("Don’t forget to send this back to me! 📨", 20, 150);
+    ctx.fillText("Don’t forget to send this back to me!", 20, 150);
 
     // Convert canvas to image
     canvas.toBlob(function(blob) {
