@@ -132,11 +132,4 @@ function createHearts() {
 var audio = new Audio('Cotton Vibe - i like you.mp3');
 audio.play();
 
-var audio;
-$("#startAudio").on("click", function(e){
-    if(!audio){
-        audio = new Audio('Cotton Vibe - i like you.mp3');;
-    }
-});
-
 setInterval(createHearts, 300);
