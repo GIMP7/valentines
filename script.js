@@ -73,13 +73,18 @@ function moveNoButton() {
         let newPadding = 10 + noCount * 5; // Increase padding
         yesBtn.style.fontSize = `${newSize}px`;
         yesBtn.style.padding = `${newPadding}px ${newPadding * 2}px`;
+        document.getElementById("yesBtn").addEventListener("click", celebrate);
     }
 
     // After the third "No", remove the "No" button
-    if (noCount >= 3) {
+    if (noCount === 3) {
+        alert("Are you sure? 🥺")
+    } else if (noCount >= 3) {
         noBtn.remove();
     }
 }
+    
+    
 function printData() {
     const location = document.getElementById("location").value;
     const time = document.getElementById("time").value;
@@ -113,7 +118,18 @@ function printData() {
 
         // Revoke the object URL to free up memory
         URL.revokeObjectURL(link.href);
+
+        // Show the ending screen
+        document.getElementById("content").classList.add("hidden");
+        document.getElementById("ending-screen").classList.remove("hidden");
     }, "image/png");
+}
+
+function restart() {
+    // Reset the app to the first page
+    document.getElementById("ending-screen").classList.add("hidden");
+    document.getElementById("content").classList.remove("hidden");
+    loadPage(1);
 }
 
 function preventClose() {
@@ -132,6 +148,17 @@ function createHearts() {
     setTimeout(() => heart.remove(), 5000);
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    setInterval(createHearts, 300);
+});
+
+function celebrate() {
+    confetti({
+        particleCount: 500,
+        spread: 360,
+        origin: { y: 0.6 }
+    });
+}
 
 
 setInterval(createHearts, 300);
