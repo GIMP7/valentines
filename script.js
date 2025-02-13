@@ -79,9 +79,7 @@ function moveNoButton() {
     }
 
     // After the third "No", remove the "No" button
-    if (noCount === 3) {
-        alert("Are you sure? 🥺")
-    } else if (noCount >= 3) {
+    if (noCount >= 3) {
         noBtn.remove();
     }
 }
